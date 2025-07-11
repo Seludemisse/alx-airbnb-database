@@ -36,3 +36,24 @@ WHERE id IN (
     HAVING AVG(rating) > 4.0
 );
 
+# ALX Airbnb Database - Advanced SQL Tasks
+
+## Task 2: Apply Aggregations and Window Functions
+
+### Objective
+Use SQL aggregation and window functions to analyze booking data.
+
+### Queries
+
+1. **Total number of bookings made by each user:**
+
+```sql
+SELECT
+    user_id,
+    COUNT(*) AS total_bookings
+FROM
+    bookings
+GROUP BY
+    user_id
+ORDER BY
+    total_bookings DESC;
