@@ -9,11 +9,12 @@ GROUP BY
 ORDER BY
     total_bookings DESC;
 
--- Query: rank properties based on the total number of bookings
+-- Using ROW_NUMBER() for ranking
 SELECT
     property_id,
     COUNT(*) AS total_bookings,
-    RANK() OVER (ORDER BY COUNT(*) DESC) AS booking_rank
+    ROW_NUMBER() OVER (ORDER BY COUNT(*) DESC) AS booking_rank
+    
 FROM
     bookings
 GROUP BY
