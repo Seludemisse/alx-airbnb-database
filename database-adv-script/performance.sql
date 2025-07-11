@@ -1,4 +1,3 @@
--- Initial query: Fetch bookings with user, property, and payment details
 EXPLAIN ANALYZE
 SELECT
     bookings.id AS booking_id,
@@ -13,7 +12,6 @@ JOIN users ON bookings.user_id = users.id
 JOIN properties ON bookings.property_id = properties.id
 JOIN payments ON bookings.id = payments.booking_id;
 
--- Optimized query: Uses table aliases and assumes indexes exist
 EXPLAIN ANALYZE
 SELECT
     b.id AS booking_id,
